@@ -30,6 +30,7 @@ let SeattleStore = {
   this.estimatedCookiesPerHour()
   let dom = document.getElementById('domTarget');
   let ulVDOM = document.createElement('ul');
+  ulVDOM.textContent = this.name
   dom.appendChild(ulVDOM)
   for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
    let liVDOM = document.createElement('li');
@@ -67,6 +68,7 @@ let TokyoStore = {
   this.estimatedCookiesPerHour()
   let dom = document.getElementById('domTarget');
   let ulVDOM = document.createElement('ul');
+  ulVDOM.textContent = this.name
   dom.appendChild(ulVDOM)
   for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
    let liVDOM = document.createElement('li');
@@ -105,6 +107,7 @@ let DubaiStore = {
   this.estimatedCookiesPerHour()
   let dom = document.getElementById('domTarget');
   let ulVDOM = document.createElement('ul');
+  ulVDOM.textContent = this.name
   dom.appendChild(ulVDOM)
   for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
    let liVDOM = document.createElement('li');
@@ -142,6 +145,7 @@ let ParisStore = {
   this.estimatedCookiesPerHour()
   let dom = document.getElementById('domTarget');
   let ulVDOM = document.createElement('ul');
+  ulVDOM.textContent = this.name
   dom.appendChild(ulVDOM)
   for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
    let liVDOM = document.createElement('li');
@@ -181,6 +185,7 @@ let LimaStore = {
   this.estimatedCookiesPerHour()
   let dom = document.getElementById('domTarget');
   let ulVDOM = document.createElement('ul');
+  ulVDOM.textContent = this.name
   dom.appendChild(ulVDOM)
   for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
    let liVDOM = document.createElement('li');
