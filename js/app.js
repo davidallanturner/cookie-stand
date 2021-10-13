@@ -192,3 +192,7 @@ let LimaStore = {
 }
 
 SeattleStore.updateDOM();
+TokyoStore.updateDOM();
+DubaiStore.updateDOM();
+ParisStore.updateDOM();
+LimaStore.updateDOM();
