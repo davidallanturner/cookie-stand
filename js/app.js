@@ -5,195 +5,241 @@ console.log('Hello, World');
 
 
 let SeattleStore = {
- name: 'Seattle'
- , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
-  '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
- , estimatedCookiesPerHourArr: []
- , minCustomers: 23
- , maxCustomers: 65
- , avgSoldPerHour: 6.3
- , randomNumOfCustomers: function () {
-  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
- }
- , estimatedCookiesPerHour: function () {
-  //create a loop for the hours
-  for (let i = 0; i < this.operatingHours.length; i++) {
-   let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
+  name: 'Seattle'
+  , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
+    '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+  , estimatedCookiesPerHourArr: []
+  , estimatedCookiesPerHourRaw: 0
+  , minCustomers: 23
+  , maxCustomers: 65
+  , avgSoldPerHour: 6.3
+  , randomNumOfCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  }
+  , estimatedCookiesPerHour: function () {
+    //create a loop for the hours
+    for (let i = 0; i < this.operatingHours.length; i++) {
+      let answerNum = `${this.randomNumOfCustomers()}`;
+      this.estimatedCookiesPerHourRaw += answerNum
+      let answer = `${this.operatingHours[i]}: ${answerNum}`;
 
-   //push to estimatedCookiesPerHourArray
-   this.estimatedCookiesPerHourArr.push(answer)
-   console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+      //push to estimatedCookiesPerHourArray
+      this.estimatedCookiesPerHourRaw += answerNum;
+      this.estimatedCookiesPerHourArr.push(answer)
+      console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+    }
+    return
   }
-  return
- }
- , updateDOM: function () {
-  this.estimatedCookiesPerHour()
-  let dom = document.getElementById('domTarget');
-  let ulVDOM = document.createElement('ul');
-  ulVDOM.textContent = this.name
-  dom.appendChild(ulVDOM)
-  for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
-   let liVDOM = document.createElement('li');
-   liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
-   ulVDOM.appendChild(liVDOM)
+
+  ,  updateDOM: function () {
+    this.estimatedCookiesPerHour()
+    let dom = document.getElementById('domTarget');
+    let ulVDOM = document.createElement('ul');
+    ulVDOM.textContent = this.name
+    dom.appendChild(ulVDOM)
+    for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
+      if (j === this.estimatedCookiesPerHourArr.length) {
+        let liVDOM = document.createElement('li');
+        liVDOM.textContent = `Total: hello`
+        ulVDOM.appendChild(liVDOM)
+      }
+      let liVDOM = document.createElement('li');
+      liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
+      ulVDOM.appendChild(liVDOM)
+    }
+    return
   }
-  return
- }
 }
 
 
-let TokyoStore = {
- name: 'Tokyo'
- , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
-  '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
- , estimatedCookiesPerHourArr: []
- , minCustomers: 3
- , maxCustomers: 24
- , avgSoldPerHour: 1.2
- , randomNumOfCustomers: function () {
-  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
- }
- , estimatedCookiesPerHour: function () {
-  //create a loop for the hours
-  for (let i = 0; i < this.operatingHours.length; i++) {
-   let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
 
-   //push to estimatedCookiesPerHourArray
-   this.estimatedCookiesPerHourArr.push(answer)
-   console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+
+let TokyoStore = {
+  name: 'Tokyo'
+  , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
+    '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+  , estimatedCookiesPerHourArr: []
+  , minCustomers: 3
+  , maxCustomers: 24
+  , avgSoldPerHour: 1.2
+  , randomNumOfCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
   }
-  return
- }
- , updateDOM: function () {
-  this.estimatedCookiesPerHour()
-  let dom = document.getElementById('domTarget');
-  let ulVDOM = document.createElement('ul');
-  ulVDOM.textContent = this.name
-  dom.appendChild(ulVDOM)
-  for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
-   let liVDOM = document.createElement('li');
-   liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
-   ulVDOM.appendChild(liVDOM)
+  , estimatedCookiesPerHour: function () {
+    //create a loop for the hours
+    for (let i = 0; i < this.operatingHours.length; i++) {
+      let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
+
+      //push to estimatedCookiesPerHourArray
+      this.estimatedCookiesPerHourArr.push(answer)
+      console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+    }
+    return
   }
-  return
- }
+
+
+  , updateDOM: function () {
+    this.estimatedCookiesPerHour()
+    let dom = document.getElementById('domTarget');
+    let ulVDOM = document.createElement('ul');
+    ulVDOM.textContent = this.name
+    dom.appendChild(ulVDOM)
+    for (let j = 0; j < this.estimatedCookiesPerHourArr.length + 1; j++) {
+      if (j === this.estimatedCookiesPerHourArr.length + 1) {
+        let liVDOM = document.createElement('li');
+        liVDOM.textContent = `Total: ${this.estimatedCookiesPerHourRaw}`
+        ulVDOM.appendChild(liVDOM)
+      }
+      let liVDOM = document.createElement('li');
+      liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
+      ulVDOM.appendChild(liVDOM)
+    }
+    return
+  }
 }
 
 
 
 let DubaiStore = {
- name: 'Dubai'
- , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
-  '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
- , estimatedCookiesPerHourArr: []
- , minCustomers: 11
- , maxCustomers: 38
- , avgSoldPerHour: 3.7
- , randomNumOfCustomers: function () {
-  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
- }
- , estimatedCookiesPerHour: function () {
-  //create a loop for the hours
-  for (let i = 0; i < this.operatingHours.length; i++) {
-   let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
+  name: 'Dubai'
+  , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
+    '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+  , estimatedCookiesPerHourRaw: 0
+  , estimatedCookiesPerHourArr: []
+  , minCustomers: 11
+  , maxCustomers: 38
+  , avgSoldPerHour: 3.7
+  , randomNumOfCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  }
+  , estimatedCookiesPerHour: function () {
+    //create a loop for the hours
+    for (let i = 0; i < this.operatingHours.length; i++) {
+      let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
 
-   //push to estimatedCookiesPerHourArray
-   this.estimatedCookiesPerHourArr.push(answer)
-   console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+      //push to estimatedCookiesPerHourArray
+      this.estimatedCookiesPerHourArr.push(answer)
+      console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+    }
+    return
   }
-  return
- }
- , updateDOM: function () {
-  this.estimatedCookiesPerHour()
-  let dom = document.getElementById('domTarget');
-  let ulVDOM = document.createElement('ul');
-  ulVDOM.textContent = this.name
-  dom.appendChild(ulVDOM)
-  for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
-   let liVDOM = document.createElement('li');
-   liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
-   ulVDOM.appendChild(liVDOM)
+  , getTotalOfCookies() {
+
   }
-  return
- }
+  , updateDOM: function () {
+    this.estimatedCookiesPerHour()
+    let dom = document.getElementById('domTarget');
+    let ulVDOM = document.createElement('ul');
+    ulVDOM.textContent = this.name
+    dom.appendChild(ulVDOM)
+    for (let j = 0; j < this.estimatedCookiesPerHourArr.length + 1; j++) {
+      if (j === this.estimatedCookiesPerHourArr.length + 1) {
+        let liVDOM = document.createElement('li');
+        liVDOM.textContent = `Total: ${this.estimatedCookiesPerHourRaw}`
+        ulVDOM.appendChild(liVDOM)
+      }
+      let liVDOM = document.createElement('li');
+      liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
+      ulVDOM.appendChild(liVDOM)
+    }
+    return
+  }
 }
 
 
 let ParisStore = {
- name: 'Paris'
- , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
-  '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
- , estimatedCookiesPerHourArr: []
- , minCustomers: 20
- , maxCustomers: 38
- , avgSoldPerHour: 2.3
- , randomNumOfCustomers: function () {
-  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
- }
- , estimatedCookiesPerHour: function () {
-  //create a loop for the hours
-  for (let i = 0; i < this.operatingHours.length; i++) {
-   let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
+  name: 'Paris'
+  , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
+    '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+  , estimatedCookiesPerHourRaw: 0
+  , estimatedCookiesPerHourArr: []
+  , minCustomers: 20
+  , maxCustomers: 38
+  , avgSoldPerHour: 2.3
+  , randomNumOfCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  }
+  , estimatedCookiesPerHour: function () {
+    //create a loop for the hours
+    for (let i = 0; i < this.operatingHours.length; i++) {
+      let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
 
-   //push to estimatedCookiesPerHourArray
-   this.estimatedCookiesPerHourArr.push(answer)
-   console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+      //push to estimatedCookiesPerHourArray
+      this.estimatedCookiesPerHourArr.push(answer)
+      console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+    }
+    return
   }
-  return
- }
- , updateDOM: function () {
-  this.estimatedCookiesPerHour()
-  let dom = document.getElementById('domTarget');
-  let ulVDOM = document.createElement('ul');
-  ulVDOM.textContent = this.name
-  dom.appendChild(ulVDOM)
-  for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
-   let liVDOM = document.createElement('li');
-   liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
-   ulVDOM.appendChild(liVDOM)
+  , getTotalOfCookies() {
+
   }
-  return
- }
+  , updateDOM: function () {
+    this.estimatedCookiesPerHour()
+    let dom = document.getElementById('domTarget');
+    let ulVDOM = document.createElement('ul');
+    ulVDOM.textContent = this.name
+    dom.appendChild(ulVDOM)
+    for (let j = 0; j < this.estimatedCookiesPerHourArr.length + 1; j++) {
+      if (j === this.estimatedCookiesPerHourArr.length + 1) {
+        let liVDOM = document.createElement('li');
+        liVDOM.textContent = `Total: ${this.estimatedCookiesPerHourRaw}`
+        ulVDOM.appendChild(liVDOM)
+      }
+      let liVDOM = document.createElement('li');
+      liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
+      ulVDOM.appendChild(liVDOM)
+    }
+    return
+  }
 }
 
 
 
 
 let LimaStore = {
- name: 'Lima'
- , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
-  '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
- , estimatedCookiesPerHourArr: []
- , minCustomers: 2
- , maxCustomers: 16
- , avgSoldPerHour: 4.6
- , randomNumOfCustomers: function () {
-  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
- }
- , estimatedCookiesPerHour: function () {
-  //create a loop for the hours
-  for (let i = 0; i < this.operatingHours.length; i++) {
-   let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
+  name: 'Lima'
+  , operatingHours: ['6am', '7am', '8am', '9am', '10am', '11am',
+    '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+  , estimatedCookiesPerHourRaw: 0
+  , estimatedCookiesPerHourArr: []
+  , minCustomers: 2
+  , maxCustomers: 16
+  , avgSoldPerHour: 4.6
+  , randomNumOfCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  }
+  , estimatedCookiesPerHour: function () {
+    //create a loop for the hours
+    for (let i = 0; i < this.operatingHours.length; i++) {
+      let answer = `${this.operatingHours[i]}: ${this.randomNumOfCustomers()}`
 
-   //push to estimatedCookiesPerHourArray
-   this.estimatedCookiesPerHourArr.push(answer)
-   console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+      //push to estimatedCookiesPerHourArray
+      this.estimatedCookiesPerHourArr.push(answer)
+      console.log('i: ' + i, 'Random: ' + answer, 'estimatedCookiesPerHourArr: ' + this.estimatedCookiesPerHourArr)
+    }
+    return
   }
-  return
- }
- , updateDOM: function () {
-  this.estimatedCookiesPerHour()
-  let dom = document.getElementById('domTarget');
-  let ulVDOM = document.createElement('ul');
-  ulVDOM.textContent = this.name
-  dom.appendChild(ulVDOM)
-  for (let j = 0; j < this.estimatedCookiesPerHourArr.length; j++) {
-   let liVDOM = document.createElement('li');
-   liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
-   ulVDOM.appendChild(liVDOM)
+  , getTotalOfCookies() {
+
   }
-  return
- }
+  , updateDOM: function () {
+    this.estimatedCookiesPerHour()
+    let dom = document.getElementById('domTarget');
+    let ulVDOM = document.createElement('ul');
+    ulVDOM.textContent = this.name
+    dom.appendChild(ulVDOM)
+    for (let j = 0; j < this.estimatedCookiesPerHourArr.length + 1; j++) {
+      if (j === this.estimatedCookiesPerHourArr.length + 1) {
+        let liVDOM = document.createElement('li');
+        liVDOM.textContent = `Total: ${this.estimatedCookiesPerHourRaw}`
+        ulVDOM.appendChild(liVDOM)
+      }
+      let liVDOM = document.createElement('li');
+      liVDOM.textContent = this.estimatedCookiesPerHourArr[j]
+      ulVDOM.appendChild(liVDOM)
+    }
+    return
+  }
 }
 
 SeattleStore.updateDOM();
@@ -201,3 +247,7 @@ TokyoStore.updateDOM();
 DubaiStore.updateDOM();
 ParisStore.updateDOM();
 LimaStore.updateDOM();
+
+
+
+
