@@ -1,0 +1,64 @@
+* {
+ box-sizing: border-box;
+}
+
+body {
+ background-color: salmon;
+}
+
+header {
+ background-color:bisque;
+}
+
+nav, main {
+ width: 960px;
+ margin: auto;
+}
+
+nav {
+ display:flex;
+ align-content: center;
+ align-items: center;
+}
+
+nav ul {
+ display: flex;
+ flex-direction: row;
+ align-items: flex-start;
+ align-content: center;
+ 
+}
+nav ul li {
+ margin: 0 1.1rem;
+}
+
+body > main > section{
+ background-color: blue;
+ display: flex;
+ justify-content: space-between;
+}
+
+body>main>section>article{
+ overflow-y: scroll;
+ height: 350px;
+}
+
+h3{
+ font-size:larger;
+}
+
+p {
+ font-size:large;
+}
+
+body main section a {
+ position: relative;
+ bottom: 10px;
+ left: 10px;
+ background:red;
+}
+
+footer{
+ height: 3rem;
+ background-color: bisque;
+}
