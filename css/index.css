@@ -42,7 +42,7 @@ nav ul li a {
 }
 
 body > main > section {
-  background-color: white;
+  background-color: #eee;
   display: flex;
   justify-content: space-between;
 }
