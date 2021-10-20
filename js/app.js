@@ -2,7 +2,7 @@
 
 // console.log('Hello, World');
 let operatingHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM',
-    '12AM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM']
+  '12AM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 
 
 function Store (name, minCust, maxCust, avg) {
@@ -12,33 +12,33 @@ function Store (name, minCust, maxCust, avg) {
   this.avg = avg;
 
   this.randomNumOfCustomers = function(){
-    return Math.floor(Math.random() * (this.maximum - this.minimum +1) + this.minimum)
-  }
+    return Math.floor(Math.random() * (this.maximum - this.minimum +1) + this.minimum);
+  };
 
   this.estimatedCookiesPerHourCreator = function(){
-    let storeCookiesArray = []
+    let storeCookiesArray = [];
     for(let i=0; i<operatingHours.length; i++){
-      let currentObject = {}
+      let currentObject = {};
       currentObject.hour = operatingHours[i];
       currentObject.customers = this.randomNumOfCustomers();
       currentObject.cookies = Math.ceil(currentObject.customers * this.avg);
-      storeCookiesArray.push(currentObject)
+      storeCookiesArray.push(currentObject);
     }
-    return storeCookiesArray // [{hour: 12AM, customers: 33, cookies: 250}...]
-  }
+    return storeCookiesArray; // [{hour: 12AM, customers: 33, cookies: 250}...]
+  };
 
   this.estimatedCookiesPerHour = this.estimatedCookiesPerHourCreator();
 
 
   this.getRowTotal = function(){
-    let totalStoreCookies = 0
+    let totalStoreCookies = 0;
     for(let i=0; i<this.estimatedCookiesPerHour.length; i++){
       totalStoreCookies += this.estimatedCookiesPerHour[i].cookies;
     }
-    return totalStoreCookies
-  }
+    return totalStoreCookies;
+  };
 
-  this.totalStoreCookies = this.getRowTotal()
+  this.totalStoreCookies = this.getRowTotal();
 
   this.updateDOM = function(){
     let tableBody = document.querySelector('tbody');
@@ -55,16 +55,16 @@ function Store (name, minCust, maxCust, avg) {
 
       //{hr,cust,cookies} but only need cookies for this itteration, just good to have customer info for later in case we need it.
       let hourlyTD = document.createElement('td');
-      hourlyTD.setAttribute('class', 'a'+this.estimatedCookiesPerHour[i].hour)
+      hourlyTD.setAttribute('class', 'a'+this.estimatedCookiesPerHour[i].hour);
 
-      hourlyTD.innerText = this.estimatedCookiesPerHour[i].cookies
+      hourlyTD.innerText = this.estimatedCookiesPerHour[i].cookies;
       tr.appendChild(hourlyTD);
     }
 
     let rowTotal = document.createElement('td');
     rowTotal.innerText = this.totalStoreCookies;
-    tr.appendChild(rowTotal)
-  }
+    tr.appendChild(rowTotal);
+  };
 }
 
 
@@ -81,7 +81,7 @@ function createTableHead() {
   headTR.appendChild(tHeadName);
 
   for (let i = 0; i < operatingHours.length; i++) {
-    let tHeadHour = document.createElement('th');
+    //let tHeadHour = document.createElement('th');
     let hourTD = document.createElement('td');
     hourTD.innerText = operatingHours[i];
     headTR.appendChild(hourTD);
@@ -118,7 +118,7 @@ function createTableFoot(){
   let tfoot = document.querySelector('tfoot');
 
   let tfootTR = document.createElement('tr');
-  tfoot.appendChild(tfootTR); 
+  tfoot.appendChild(tfootTR);
 
   let tfootStart = document.createElement('td');
   tfootStart.innerText = 'Total Cookies Needed Per Hour';
@@ -131,13 +131,13 @@ function createTableFoot(){
     //HTML5 is supposed to do it, but NNNNOOOOO...
     let targetlist = document.querySelectorAll('.a'+operatingHours[i]);
     //console.log(targetlist[1].innerText);
-    let totalHourCookies = 0
+    let totalHourCookies = 0;
 
     for(let j=0;j<targetlist.length;j++){
       totalHourCookies += parseInt(targetlist[j].innerHTML);
-      console.log(totalHourCookies)
+      console.log(totalHourCookies);
     }
-    
+
     let totalPerHrTD = document.createElement('td');
     totalPerHrTD.innerText = totalHourCookies;
 
