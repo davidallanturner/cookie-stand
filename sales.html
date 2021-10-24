@@ -6,10 +6,46 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Salmon Cookie Store</title>
+ <link rel="stylesheet" href="css/sales.css">
 </head>
 
 <body>
+
+ <h1>Sales</h1>
+
+ <div id='addASiteForm'>
+  <form>
+
+   <legend>Add A Store:</legend>
+
+   <label>
+    Store Name:
+    <input type="text" id="storeName" placeholder="Store Name:" required>
+   </label>
+
+   <label>
+    Minimum Customers Per Hour:
+    <input type="number" id="minCustomers" placeholder="1" required>
+   </label>
+
+   <label>
+    Maximum Customers Per Hour:
+    <input type="number" id="maxCustomers" placeholder="1" required>
+   </label>
+
+   <label>
+    Average Cookies Per Customer:
+    <input type="number" step="0.1" id="averageCookies" placeholder="1.0" required>
+   </label>
+
+   <input type="button" value="Submit" id="submitter">
+
+  </form>
+ </div>
+
+
  <div id="domTarget">
+  <h2 >Estimated Cookie Needs:</h2>
   <table>
    <thead></thead>
    <tbody></tbody>

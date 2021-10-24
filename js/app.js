@@ -5,19 +5,19 @@ let operatingHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM',
   '12AM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 
 
-function Store (name, minCust, maxCust, avg) {
+function Store(name, minCust, maxCust, avg) {
   this.storeName = name;
   this.minimum = minCust;
   this.maximum = maxCust;
   this.avg = avg;
 
-  this.randomNumOfCustomers = function(){
-    return Math.floor(Math.random() * (this.maximum - this.minimum +1) + this.minimum);
+  this.randomNumOfCustomers = function () {
+    return Math.floor(Math.random() * (this.maximum - this.minimum + 1) + this.minimum);
   };
 
-  this.estimatedCookiesPerHourCreator = function(){
+  this.estimatedCookiesPerHourCreator = function () {
     let storeCookiesArray = [];
-    for(let i=0; i<operatingHours.length; i++){
+    for (let i = 0; i < operatingHours.length; i++) {
       let currentObject = {};
       currentObject.hour = operatingHours[i];
       currentObject.customers = this.randomNumOfCustomers();
@@ -30,9 +30,9 @@ function Store (name, minCust, maxCust, avg) {
   this.estimatedCookiesPerHour = this.estimatedCookiesPerHourCreator();
 
 
-  this.getRowTotal = function(){
+  this.getRowTotal = function () {
     let totalStoreCookies = 0;
-    for(let i=0; i<this.estimatedCookiesPerHour.length; i++){
+    for (let i = 0; i < this.estimatedCookiesPerHour.length; i++) {
       totalStoreCookies += this.estimatedCookiesPerHour[i].cookies;
     }
     return totalStoreCookies;
@@ -40,7 +40,7 @@ function Store (name, minCust, maxCust, avg) {
 
   this.totalStoreCookies = this.getRowTotal();
 
-  this.updateDOM = function(){
+  this.updateDOM = function () {
     let tableBody = document.querySelector('tbody');
     //crud a body FIRST NAME THEN HOURS
     let tr = document.createElement('tr');
@@ -51,11 +51,11 @@ function Store (name, minCust, maxCust, avg) {
     tableName.innerText = this.storeName;
     tr.appendChild(tableName);
 
-    for(let i=0; i<this.estimatedCookiesPerHour.length; i++){
+    for (let i = 0; i < this.estimatedCookiesPerHour.length; i++) {
 
       //{hr,cust,cookies} but only need cookies for this itteration, just good to have customer info for later in case we need it.
       let hourlyTD = document.createElement('td');
-      hourlyTD.setAttribute('class', 'a'+this.estimatedCookiesPerHour[i].hour);
+      hourlyTD.setAttribute('class', 'a' + this.estimatedCookiesPerHour[i].hour);
 
       hourlyTD.innerText = this.estimatedCookiesPerHour[i].cookies;
       tr.appendChild(hourlyTD);
@@ -111,29 +111,76 @@ limaStore.updateDOM();
 
 
 
+
+//create new element by updating the form
+let subBtn = document.getElementById('submitter');
+
+let newStoreFunction = function () {
+  console.log('bang');
+  let storeName = document.getElementById('storeName');
+  let minCustomers = document.getElementById('minCustomers');
+  let maxCustomers = document.getElementById('maxCustomers');
+  let averageCookies = document.getElementById('averageCookies');
+
+  if (storeName.value === "" || minCustomers.value.length < 1  || maxCustomers.value.length < 1  || averageCookies.value.length < 1 ){
+    console.log('storeName:' + storeName, 'typeof:' + typeof minCustomers)
+    return;
+  }
+
+  console.log('adding the values of: ' + storeName.value, minCustomers.value, maxCustomers.value, averageCookies.value )
+
+  let newStore = new Store(storeName.value, minCustomers.value, maxCustomers.value, averageCookies.value);
+
+  //target the footer and remove it
+  let totalRow = document.getElementById('totals');
+  totalRow.remove();
+  
+  //append new row
+  newStore.updateDOM();
+  createTableFoot();
+
+  storeName.value = "";
+  minCustomers.value = "";
+  maxCustomers.value = "";
+  averageCookies.value = "";
+
+}
+
+subBtn.addEventListener('click', newStoreFunction);
+
+
+
+
+
+
+
+
+
+
 //CREATE A TABLE FOOT HERE!//
 
-function createTableFoot(){
+function createTableFoot() {
   //target tfoot
   let tfoot = document.querySelector('tfoot');
 
   let tfootTR = document.createElement('tr');
+  tfootTR.id = 'totals';
   tfoot.appendChild(tfootTR);
 
   let tfootStart = document.createElement('td');
-  tfootStart.innerText = 'Total Cookies Needed Per Hour';
+  tfootStart.innerText = 'Needed Per Hour';
   tfootTR.appendChild(tfootStart);
 
   //Practice scraping!! B/C why not!!
-  for(let i=0; i<operatingHours.length; i++){
+  for (let i = 0; i < operatingHours.length; i++) {
     console.log(operatingHours[i]);
     //https://stackoverflow.com/questions/34777481/failed-to-execute-query-selector-on-document-id-is-not-a-valid-selector/34777644
     //HTML5 is supposed to do it, but NNNNOOOOO...
-    let targetlist = document.querySelectorAll('.a'+operatingHours[i]);
+    let targetlist = document.querySelectorAll('.a' + operatingHours[i]);
     //console.log(targetlist[1].innerText);
     let totalHourCookies = 0;
 
-    for(let j=0;j<targetlist.length;j++){
+    for (let j = 0; j < targetlist.length; j++) {
       totalHourCookies += parseInt(targetlist[j].innerHTML);
       console.log(totalHourCookies);
     }

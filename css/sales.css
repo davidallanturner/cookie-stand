@@ -1,0 +1,97 @@
+* {
+ box-sizing: border-box;
+}
+
+legend,label,h2, h1,th, td {
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#submitter{
+ border-radius: 5px;
+ background-color: #fa8072bb;
+ font-size: 20px;
+}
+
+h1 {
+ background-color: #ccc;
+ padding-left: 15px;
+ margin-bottom: 20px !important;
+ border-bottom: 2px solid #fa8072bb
+}
+
+form {
+ display: flex;
+ flex-direction: column;
+ border: 2px solid #fa8072bb;
+ border-radius: 10px;
+ width: 500px;
+}
+
+#addASiteForm {
+ display: flex;
+ justify-content: center;
+}
+
+
+form legend {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: larger;
+ font-weight: bolder;
+ text-align: center;
+ border-bottom: 2px solid #fa8072bb;
+ background-color: #ccc;
+}
+
+label {
+ background-color: #ccc;
+ display: block;
+ margin: 10px 0px;
+ font-size: 20px;
+}
+
+label input {
+ float: right;
+}
+
+
+body {
+ background: linear-gradient(to bottom, #ccc 0%, #fa8072bb 100%);
+ height:100vh;
+}
+
+
+#domTarget {
+ margin: 20px 0px;
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+}
+
+
+h2 {
+ background-color: #ccc;
+ padding-left: 15px;
+ border-top: 2px solid #fa8072bb;
+ border-bottom: 2px solid #fa8072bb;
+}
+
+table {
+ border-collapse: collapse;
+ border-spacing: 0.5rem;
+ margin: 10px 0px;
+ border: 2px solid #fa8072bb;
+ border-radius: 10px;
+}
+
+table tbody tr{
+ border: 2px solid #fa8072bb;
+}
+
+td, th {
+ border: 2px solid #fa8072bb;
+ padding: 10px;
+}
+
+tbody tr:nth-child(odd) {
+  background: #ccc;
+}

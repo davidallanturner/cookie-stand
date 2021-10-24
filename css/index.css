@@ -23,14 +23,20 @@ nav {
   align-items: center;
 }
 
+nav img {
+  width: 200px;
+  height: 70px;
+}
+
+
 nav ul {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items:flex-start;
   align-content: center;
 }
 nav ul li {
-  margin: 0 2rem;
+  margin-right: 2rem;
 }
 nav ul li a {
   text-decoration: none;
