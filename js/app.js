@@ -116,35 +116,35 @@ limaStore.updateDOM();
 let subBtn = document.getElementById('submitter');
 
 let newStoreFunction = function () {
-  console.log('bang');
+  // console.log('bang');
   let storeName = document.getElementById('storeName');
   let minCustomers = document.getElementById('minCustomers');
   let maxCustomers = document.getElementById('maxCustomers');
   let averageCookies = document.getElementById('averageCookies');
 
-  if (storeName.value === "" || minCustomers.value.length < 1  || maxCustomers.value.length < 1  || averageCookies.value.length < 1 ){
-    console.log('storeName:' + storeName, 'typeof:' + typeof minCustomers)
+  if (storeName.value === '' || minCustomers.value.length < 1 || maxCustomers.value.length < 1 || averageCookies.value.length < 1 ){
+    console.log('storeName:' + storeName, 'typeof:' + typeof minCustomers);
     return;
   }
 
-  console.log('adding the values of: ' + storeName.value, minCustomers.value, maxCustomers.value, averageCookies.value )
+  console.log('adding the values of: ' + storeName.value, minCustomers.value, maxCustomers.value, averageCookies.value );
 
   let newStore = new Store(storeName.value, minCustomers.value, maxCustomers.value, averageCookies.value);
 
   //target the footer and remove it
   let totalRow = document.getElementById('totals');
   totalRow.remove();
-  
+
   //append new row
   newStore.updateDOM();
   createTableFoot();
 
-  storeName.value = "";
-  minCustomers.value = "";
-  maxCustomers.value = "";
-  averageCookies.value = "";
+  storeName.value = '';
+  minCustomers.value = '';
+  maxCustomers.value = '';
+  averageCookies.value = '';
 
-}
+};
 
 subBtn.addEventListener('click', newStoreFunction);
 
