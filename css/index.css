@@ -9,8 +9,8 @@ body {
 header {
   background-color: antiquewhite;
   border-bottom: 1px solid #ddd;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 10px;
 }
 
 nav,
@@ -23,7 +23,6 @@ nav {
   display: flex;
   align-content: center;
   align-items: center;
-  
 }
 
 nav img {
@@ -31,11 +30,42 @@ nav img {
   height: 70px;
 }
 
+nav h1 {
+  width: 120px;
+  font-size: 30px;
+  font-weigth: bolder;
+}
+
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: center;
+}
+nav ul li {
+  margin-right: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #222;
+  padding: 10px;
+  font-size: larger;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+
 h2 {
   font-size: 40px;
-  background: antiquewhite;
+  background: salmon;
   text-shadow: 1px 1px 3px #aaa;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 8px;
+    padding-top: 3px;
+    padding-left: 5px;
+    text-align: center;
+    font-family: sans-serif;
 }
 
 #menu {
@@ -45,36 +75,40 @@ h2 {
   justify-content: space-around;
   align-content: center;
   height: 450px;
-  width:960px;
+  width: 960px;
   /* https://www.publicdomainpictures.net/pictures/110000/velka/chalkboard-or-blackboard.jpg */
-  background-image: url("../assets/chalkboard.jpg");
+  background-image: url('../assets/chalkboard.jpg');
+  background-size: cover;
   border: 2px solid whitesmoke;
   /* box-shadow: 5px 10px 2px whitesmoke; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: whitesmoke;
+  margin-bottom: 10px;
 }
 #menu h3 {
   font-family: 'Dancing Script', cursive;
   font-size: 35px;
-  text-shadow: 1px 1px 3px #aaa;
+  text-shadow: 1px 1px 8px rgb(236, 158, 158);
+  color: salmon;
 }
 
 #menu li {
-  /* text-shadow: 1px 1px 3px #aaa; */
   font-family: 'Indie Flower', cursive;
   font-size: 22px;
   margin: 2px 0px;
-  color: #eee;
+  color: rgb(203, 234, 243);
   margin: 2px 10px;
+  text-shadow: 3px 3px 10px rgb(218, 223, 172);
 }
 
-#menu section{
+#menu section {
   margin: 5px;
   padding-top: 5px;
   /* border-top: 3px dotted whitesmoke; */
-  border-bottom: 5px dotted whitesmoke;
+  border-bottom: 5px dotted salmon;
+  border
 }
-#menu > img:nth-child(5){
+#menu > img:nth-child(5) {
   width: 300px;
   transform: rotate(340deg);
   /* transform: scaleX(-1); */
@@ -87,26 +121,8 @@ h2 {
   /* margin-left: 15px; */
 }
 
-nav ul {
-  display: flex;
-  flex-direction: row;
-  align-items:flex-start;
-  align-content: center;
-}
-nav ul li {
-  margin-right: 2rem;
-}
-nav ul li a {
-  text-decoration: none;
-  color: #222;
-  padding: 10px;
-  font-size: larger;
-  font-family: sans-serif;
-  font-weight: bolder;
-}
 
 body > main > section {
-  background-color: #eee;
   display: flex;
   justify-content: space-between;
 }
@@ -119,10 +135,12 @@ body > main > section > div > article {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
   text-shadow: 1px 1px 3px #aaa;
 }
+
+
 
 p {
   font-size: large;
@@ -140,20 +158,34 @@ body main section a {
 
 #picture {
   /* background-image: url("../assets/chalkboard.jpg"); */
-  background-image: url("../assets/family.jpg");
-  background-size:contain;
-  width:630px;
+  background-image: url('../assets/family.jpg');
+  background-position-y: 45px;
+  /* filter: blur(2px); */
+  background-size:cover;
+  width: 630px;
+  height: 375px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom:10px;
 }
 
-#picture h3 {
+#picture h2 {
   font-family: 'Dancing Script', cursive;
-  font-size: 50px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 400px;
-  margin-top: 275px;
-  background:rgba(225, 225, 225, 0.8)
+  font-size: 40px;
+  /* text-align: center; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* width: 400px; */
+  /* margin-top: 290px; */
+  text-shadow: 1px 1px 1px #aaa;
+  background: #fa8072;
+  border: 1px solid salmon;
+  padding-bottom: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#picture h2 em {
+  font-family: 'Times New Roman', Times, serif;
+  display: block;
 }
 
 body > main > section:nth-child(3) {
@@ -165,7 +197,25 @@ body > main > section:nth-child(3) > article {
   flex-direction: column;
 }
 
+#swag h2 {
+  width: 300px;
+  /* text-align: center; */
+  padding-bottom: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#swag {
+  width: 300px;
+  height: 375px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: url("../assets/shirt.jpg");
+  background-position-y:51px;
+  margin-bottom: 10px;
+}
+
+
 footer {
   height: 3rem;
   background-color: antiquewhite;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
