@@ -1,171 +1,202 @@
-* {
-  box-sizing: border-box;
+*{
+	box-sizing:border-box
 }
-
-body {
-  background-color: white;
+a{
+	text-decoration:none
 }
-
-header {
-  background-color: antiquewhite;
-  border-bottom: 1px solid #ddd;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 10px;
+body{
+	background-color:#fff
 }
-
-nav,
-main {
-  width: 960px;
-  margin: auto;
+header{
+	background-color:#faebd7;
+	border-bottom:1px solid #ddd;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	margin-bottom:10px
 }
-
-nav {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  
+main,nav{
+	width:960px;
+	margin:auto
 }
-
-nav img {
-  width: 200px;
-  height: 70px;
+nav{
+	display:flex;
+	align-content:center;
+	align-items:center
 }
-
-h2 {
-  font-size: 40px;
-  background: antiquewhite;
-  text-shadow: 1px 1px 3px #aaa;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+nav img{
+	width:200px;
+	height:70px
 }
-
-#menu {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: center;
-  height: 450px;
-  width:960px;
-  /* https://www.publicdomainpictures.net/pictures/110000/velka/chalkboard-or-blackboard.jpg */
-  background-image: url("../assets/chalkboard.jpg");
-  border: 2px solid whitesmoke;
-  /* box-shadow: 5px 10px 2px whitesmoke; */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  color: whitesmoke;
+nav h1{
+	width:120px;
+	font-size:30px;
+	font-weight:bolder
 }
-#menu h3 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 35px;
-  text-shadow: 1px 1px 3px #aaa;
+nav ul{
+	display:flex;
+	flex-direction:row;
+	align-items:flex-start;
+	align-content:center
 }
-
-#menu li {
-  /* text-shadow: 1px 1px 3px #aaa; */
-  font-family: 'Indie Flower', cursive;
-  font-size: 22px;
-  margin: 2px 0px;
-  color: #eee;
-  margin: 2px 10px;
+nav ul li{
+	margin-right:1rem
 }
-
+nav ul li a{
+	text-decoration:none;
+	color:#222;
+	padding:10px;
+	font-size:larger;
+	font-family:sans-serif;
+	font-weight:bolder
+}
+h2{
+	font-size:40px;
+	background:salmon;
+	text-shadow:1px 1px 3px #aaa;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	padding-bottom:8px;
+	padding-top:3px;
+	padding-left:5px;
+	text-align:center;
+	font-family:sans-serif
+}
+#menu{
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction:column;
+	justify-content:space-around;
+	align-content:center;
+	height:450px;
+	width:960px;
+	background-image:url(../assets/chalkboard.jpg);
+	background-size:cover;
+	border:2px solid #f5f5f5;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	color:#f5f5f5;
+	margin-bottom:10px
+}
+#menu h3{
+	font-family:'Dancing Script',cursive;
+	font-size:35px;
+	text-shadow:1px 1px 8px #ec9e9e;
+	color:salmon
+}
+#menu li{
+	font-family:'Indie Flower',cursive;
+	font-size:22px;
+	margin:2px 0;
+	color:#cbeaf3;
+	margin:2px 10px;
+	text-shadow:3px 3px 10px #dadfac
+}
 #menu section{
-  margin: 5px;
-  padding-top: 5px;
-  /* border-top: 3px dotted whitesmoke; */
-  border-bottom: 5px dotted whitesmoke;
+	margin:5px;
+	padding-top:5px;
+	border-bottom:5px dotted salmon
 }
-#menu > img:nth-child(5){
-  width: 300px;
-  transform: rotate(340deg);
-  /* transform: scaleX(-1); */
+#menu>img:nth-child(5){
+	width:300px;
+	transform:rotate(340deg)
 }
-
-#menu section ul li em {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  /* float: right; */
-  /* margin-left: 15px; */
+#menu section ul li em{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:18px
 }
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-  align-items:flex-start;
-  align-content: center;
+body>main>section{
+	display:flex;
+	justify-content:space-between;
+	width:960px
 }
-nav ul li {
-  margin-right: 2rem;
+body>main>section>div>article{
+	overflow-y:scroll;
+	height:350px;
+	margin-bottom:20px;
+	width:450px
 }
-nav ul li a {
-  text-decoration: none;
-  color: #222;
-  padding: 10px;
-  font-size: larger;
-  font-family: sans-serif;
-  font-weight: bolder;
+h3{
+	font-size:1.5rem;
+	margin-bottom:10px;
+	text-shadow:1px 1px 3px #aaa
 }
-
-body > main > section {
-  background-color: #eee;
-  display: flex;
-  justify-content: space-between;
+#center{
+	display:flex;
+	justify-content:space-between;
+	width:960px;
+	height:375px
 }
 
-body > main > section > div > article {
-  overflow-y: scroll;
-  height: 350px;
-  margin-bottom: 20px;
-  width: 450px;
+#center>#locations>ul {
+  margin: 10px 0px;
 }
 
-h3 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 3px #aaa;
+p{
+	font-size:large;
+	font-family:sans-serif
 }
-
-p {
-  font-size: large;
-  font-family: sans-serif;
+body>main>section>a{
+	background:#ddd;
+	border-radius:4px;
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:large;
+	color:#000
 }
-
-body main section a {
-  background: #ddd;
-  padding: 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: large;
+#picture{
+	background-image:url(../assets/family.jpg);
+	background-position-y:45px;
+	background-position-x:-90px;
+	background-size:cover;
+	width:630px;
+	height:375px;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	margin-bottom:10px
 }
-
-#picture {
-  /* background-image: url("../assets/chalkboard.jpg"); */
-  background-image: url("../assets/family.jpg");
-  background-size:contain;
-  width:630px;
+#picture h2{
+	font-family:'Dancing Script',cursive;
+	font-size:40px;
+	text-shadow:1px 1px 1px #aaa;
+	background:salmon;
+	border:1px solid salmon;
+	padding-bottom:4px;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)
 }
-
-#picture h3 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 50px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 400px;
-  margin-top: 275px;
-  background:rgba(225, 225, 225, 0.8)
+#picture h2 em{
+	font-family:'Times New Roman',Times,serif;
+	display:block
 }
-
-body > main > section:nth-child(3) {
-  margin: 5px 0px;
+body>main>section:nth-child(3){
+	margin:5px 0
 }
-
-body > main > section:nth-child(3) > article {
-  display: flex;
-  flex-direction: column;
+body>main>section:nth-child(3)>article{
+	display:flex;
+	flex-direction:column
 }
-
-footer {
-  height: 3rem;
-  background-color: antiquewhite;
+#swag h2{
+	width:300px;
+	padding-bottom:8px;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)
+}
+#swag{
+	width:300px;
+	height:375px;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	background-image:url(../assets/shirt.jpg);
+	background-position-y:51px;
+	margin-bottom:10px
+}
+#swag a{
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:large;
+	color:#000
+}
+#middle{
+	width:300px
+}
+#locations{
+	width:300px
+}
+footer{
+	height:3rem;
+	background-color:#faebd7;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)
 }
