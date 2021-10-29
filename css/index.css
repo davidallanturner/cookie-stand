@@ -117,11 +117,13 @@ h3{
 	margin-bottom:10px;
 	text-shadow:1px 1px 3px #aaa
 }
+
 #center{
 	display:flex;
 	justify-content:space-between;
 	width:960px;
-	height:375px
+	height:375px;
+	margin-bottom: 15px;
 }
 
 #center>#locations>ul {
@@ -163,6 +165,29 @@ body>main>section>a{
 	font-family:'Times New Roman',Times,serif;
 	display:block
 }
+
+
+#locations{
+	background-image: url('../assets/frosted-cookie.jpg');
+	/* filter: blur(5px); */
+	width: 300;
+	height: 375px;
+	/* background-repeat: no-repeat; */
+	background-size:contain;
+		box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)
+}
+
+#locations ul {
+	/* font-family:'Dancing Script',cursive; */
+	font-size:19px;
+	background-color: #faebd7dd;
+	text-shadow:1px 1px 1px #aaa;
+	backdrop-filter: blur(10px);
+	padding-bottom: 10px;
+	width: 300px;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)
+}
+
 body>main>section:nth-child(3){
 	margin:5px 0
 }
@@ -190,13 +215,19 @@ body>main>section:nth-child(3)>article{
 	color:#000
 }
 #middle{
-	width:300px
+	width:300px;
+	background-image: url('../assets/cutter.jpg');
+	background-size: cover;
+	background-position-x: -25px;
+		box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
 }
-#locations{
-	width:300px
-}
+
 footer{
 	height:3rem;
 	background-color:#faebd7;
-	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	text-align: center;
+	color:#555;
+	margin-top: 10px;
+	padding-top: 10px;
 }

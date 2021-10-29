@@ -19,6 +19,19 @@ h1 {
  border-bottom: 2px solid #fa8072bb
 }
 
+h2{
+	font-size:40px;
+	background:salmon;
+	text-shadow:1px 1px 3px #aaa;
+	box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+	padding-bottom:8px;
+	padding-top:3px;
+	padding-left:5px;
+	text-align:center;
+	font-family:sans-serif
+}
+
+
 form {
  display: flex;
  flex-direction: column;
@@ -55,7 +68,7 @@ label input {
 
 
 body {
- background: linear-gradient(to bottom, #ccc 0%, #fa8072bb 100%);
+ /* background: linear-gradient(to bottom, #ccc 0%, #fa8072bb 100%); */
  height:100vh;
 }
 
